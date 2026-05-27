@@ -1,15 +1,14 @@
 name: deploy vue
 
-
 on:
   push:
-    branches: [ prod ]
+    branches:
+      - prod
 
 jobs:
   deploy-app:
     runs-on: ubuntu-latest
     steps:
-
       - name: check out the code to build server
         uses: actions/checkout@v4
 
@@ -23,7 +22,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
 
       - name: build the code
         run: |
